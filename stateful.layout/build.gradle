@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'cn.numeron'
+group = 'com.github.xiazunyang'
 version = '1.0.0'
 
 android {

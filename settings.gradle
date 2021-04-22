@@ -1,2 +1,2 @@
-rootProject.name = "stateful.layout"
+rootProject.name = "stateful_layout"
 include ":stateful.layout"
