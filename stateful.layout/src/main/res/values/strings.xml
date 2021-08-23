@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="stateful_empty">没有数据</string>
-    <string name="stateful_failure">加载失败</string>
-    <string name="stateful_loading">加载中…</string>
-</resources>

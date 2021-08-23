@@ -25,8 +25,9 @@ try {
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:stateful_failure_layout="@layout/state_failure_layout">
-        
-    <!--默认是success状态-->
+    <!--注意上方的stateful_failure_layout属性，它引用了另外一个布局作为自己的failure状态下的视图-->
+
+    <!--没有指定state，则默认是success状态-->
     <RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -45,18 +46,27 @@ try {
         app:stateful_animation_show="@anim/stateful_loading_show"
         app:stateful_animation_hide="@anim/stateful_loading_hide"
         app:layout_state="loading" />
-    
+
 </StatefulLayout>
 ```
-*  如果想统一修改除success以外所有状态的默认视图，可在当前正在应用的主题资源中指定：
+*  如果想统一修改除success以外所有状态的默认视图，可在当前正在应用的主题资源中添加以下属性并指定新的`Style`:
 ```xml
-<!--默认视图-->
-<item="stateful_empty_layout">@layout/state_empty_layout</item>
-<item="stateful_loading_layout">@layout/state_loading_layout</item>
-<item="stateful_failure_layout">@layout/state_failure_layout</item>
-<!--包括默认动画效果-->
-<item="stateful_animation_show">@layout/state_show_anim</item>
-<item="stateful_animation_hide">@layout/state_hide_anim</item>
+<style name="...">
+    ...
+    <!--为statefulLayoutStyle属性设置新的样式-->
+    <item name="statefulLayoutStyle">@style/ExampleStatefulLayoutStyle</item>
+</style>
+
+<!--添加新的样式，继承自默认的样式-->
+<style name="ExampleStatefulLayoutStyle" parent="StatefulLayoutStyle">
+    <!--修改默认视图-->
+    <item name="stateful_empty_layout">@layout/empty_layout</item>
+    <item name="stateful_loading_layout">@layout/loading_layout</item>
+    <item name="stateful_failure_layout">@layout/failure_layout</item>
+    <!--修改默认动画效果-->
+    <item="stateful_animation_show">@layout/state_show_anim</item>
+    <item="stateful_animation_hide">@layout/state_hide_anim</item>
+</style>
 ```
 
 ### 引入

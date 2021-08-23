@@ -1,4 +1,5 @@
 <resources>
+    <attr name="statefulLayoutStyle" format="reference" />
     <attr name="stateful_empty_layout" format="reference" />
     <attr name="stateful_loading_layout" format="reference" />
     <attr name="stateful_failure_layout" format="reference" />
@@ -23,7 +24,20 @@
             <enum name="failure" value="2" />
             <enum name="success" value="3" />
         </attr>
+        <attr name="stateful_invisible" format="boolean" />
         <attr name="stateful_animation_show" />
         <attr name="stateful_animation_hide" />
     </declare-styleable>
+
+    <string name="stateful_layout_empty">没有数据</string>
+    <string name="stateful_layout_failure">加载失败</string>
+    <string name="stateful_layout_loading">加载中…</string>
+
+    <style name="StatefulLayoutStyle">
+        <item name="stateful_empty_layout">@layout/state_empty_layout</item>
+        <item name="stateful_loading_layout">@layout/state_loading_layout</item>
+        <item name="stateful_failure_layout">@layout/state_failure_layout</item>
+        <item name="stateful_animation_show">@anim/anim_state_layout_show</item>
+        <item name="stateful_animation_hide">@anim/anim_state_layout_hide</item>
+    </style>
 </resources>
